@@ -2,11 +2,11 @@
 
 Implementation of Sabre plugin for Firecracker described in the paper ["Sabre: Improving Memory Prefetching in Serverless MicroVMs with Near-Memory Hardware-Accelerated Compression"]().
 
-This reposirtory is fork of [Firecracker-containerd](https://github.com/firecracker-microvm/firecracker-containerd) which allows to run regular docker containers in firecracker. To try it, run the following.
+This reposirtory is fork of [firecracker-containerd](https://github.com/firecracker-microvm/firecracker-containerd) which allows to run regular docker containers in firecracker. To try it, run the following.
 
 ### Build Firecracker with Sabre
 
-Follow instructions in our [Firecracker repository](https://github.com/barabanshek/firecracker/tree/sabre/sabre).
+Follow instructions in our [firecracker repository](https://github.com/barabanshek/firecracker/tree/sabre/sabre).
 
 ### Build and run Firecracker-containerd with Sabre
 
