@@ -6,7 +6,7 @@ This reposirtory is fork of [firecracker-containerd](https://github.com/firecrac
 
 ### Build Firecracker with Sabre
 
-Follow instructions in our [firecracker repository](https://github.com/barabanshek/firecracker/tree/sabre/sabre).
+First, we need to build firecracker with Sabre. Follow instructions in our [firecracker repository](https://github.com/barabanshek/firecracker/tree/sabre/sabre).
 
 ### Build and run Firecracker-containerd with Sabre
 
