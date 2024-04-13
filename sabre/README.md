@@ -11,8 +11,6 @@ First, we need to build firecracker with Sabre. Follow instructions in our [fire
 ### Build and run Firecracker-containerd with Sabre
 
 ```
-pushd sabre/
-
 # Prepare machine to run containerd
 ./install_contrainerd.sh
 
