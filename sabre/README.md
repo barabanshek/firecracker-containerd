@@ -4,11 +4,11 @@ Implementation of Sabre plugin for Firecracker described in the paper ["Sabre: I
 
 This reposirtory is fork of [firecracker-containerd](https://github.com/firecracker-microvm/firecracker-containerd) which allows to run regular docker containers in firecracker. To try it, run the following.
 
-### Build Firecracker with Sabre
+## Prerequisites
 
-First, we need to build firecracker with Sabre. Follow instructions in our [firecracker repository](https://github.com/barabanshek/firecracker/tree/sabre/sabre).
+First, we need to build firecracker with Sabre. Follow instructions in our [firecracker repository](https://github.com/barabanshek/firecracker/tree/sabre/sabre). You are welcome to run all tests and benchmarks from it to make sure the system is working correctly.
 
-### Build and run Firecracker-containerd with Sabre
+## Build and run firecracker-containerd with Sabre
 
 ```
 # Prepare machine to run containerd

@@ -22,6 +22,9 @@ service Firecracker {
     // Returns VM info by VM ID
     rpc GetVMInfo(GetVMInfoRequest) returns (GetVMInfoResponse);
 
+    // An API request to create firecracker snapshot.
+    rpc CreateSnapshot(CreateSnapshotRequest) returns (google.protobuf.Empty);
+
     // Sets VM's instance metadata
     rpc SetVMMetadata(SetVMMetadataRequest) returns (google.protobuf.Empty);
 

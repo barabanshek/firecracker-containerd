@@ -448,6 +448,23 @@ func (s *local) UpdateBalloonStats(requestCtx context.Context, req *proto.Update
 	return resp, nil
 }
 
+func (s *local) CreateSnapshot(requestCtx context.Context, req *proto.CreateSnapshotRequest) (*types.Empty, error) {
+	client, err := s.shimFirecrackerClient(requestCtx, req.VMID)
+	if err != nil {
+		return nil, err
+	}
+
+	defer client.Close()
+
+	resp, err := client.CreateSnapshot(requestCtx, req)
+	if err != nil {
+		s.logger.WithError(err).Error()
+		return nil, err
+	}
+
+	return resp, nil
+}
+
 func (s *local) newShim(ns, vmID, containerdAddress string, shimSocket *net.UnixListener, fcSocket *net.UnixListener) (*exec.Cmd, error) {
 	logger := s.logger.WithField("vmID", vmID)
 
