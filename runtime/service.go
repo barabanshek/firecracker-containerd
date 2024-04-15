@@ -593,9 +593,7 @@ func (s *service) createVM(requestCtx context.Context, request *proto.CreateVMRe
 	// and have the SDK construct a new machine using that context. Otherwise, a
 	// custom process runner will be provided via options which will stomp over
 	// the shim context that was provided here.
-	fmt.Printf("request.LoadSnapshot= %t\n", request.LoadSnapshot)
 	if request.LoadSnapshot {
-		fmt.Printf("loading snapshot from %s\n", request.MemFilePath)
 		opts = append(opts, firecracker.WithSnapshot(request.MemFilePath,
 			request.SnapshotPath,
 			func(config *firecracker.SnapshotConfig) {
