@@ -120,6 +120,8 @@ github.com/barabanshek/firecracker-go-sdk v0.1.0-29b0a61 h1:WykhTNurckffCDcvyCU1
 github.com/barabanshek/firecracker-go-sdk v0.1.0-29b0a61/go.mod h1:iXd7gqdwzvhB4VbNVMb70g/IY04fOuQbbBGM+PQEkgo=
 github.com/barabanshek/firecracker-go-sdk v0.1.0-4863b6 h1:yCpuyrxGBBKSqImG4RWKMxvpNHggscvW24te52VtV+c=
 github.com/barabanshek/firecracker-go-sdk v0.1.0-4863b6/go.mod h1:iXd7gqdwzvhB4VbNVMb70g/IY04fOuQbbBGM+PQEkgo=
+github.com/barabanshek/firecracker-go-sdk v0.1.0-b74f6d4 h1:Va6B8Z0kyk7n4jnt6AAaY3PgmOq8vsqQ48DhGVlw/7U=
+github.com/barabanshek/firecracker-go-sdk v0.1.0-b74f6d4/go.mod h1:iXd7gqdwzvhB4VbNVMb70g/IY04fOuQbbBGM+PQEkgo=
 github.com/benbjohnson/clock v1.0.3/go.mod h1:bGMdMPoPVvcYyt1gHDf4J2KE153Yf9BuiUKYMaxlTDM=
 github.com/beorn7/perks v0.0.0-20160804104726-4c0e84591b9a/go.mod h1:Dwedo/Wpr24TaqPxmxbtue+5NUziq4I4S80YR8gNf3Q=
 github.com/beorn7/perks v0.0.0-20180321164747-3a771d992973/go.mod h1:Dwedo/Wpr24TaqPxmxbtue+5NUziq4I4S80YR8gNf3Q=

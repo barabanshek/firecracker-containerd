@@ -49,6 +49,8 @@ message CreateVMRequest {
     string MemFilePath = 17;
 
     string ContainerSnapshotPath = 18;
+
+    bool LoadCompressedSnapshot = 19;
 }
 
 message CreateVMResponse {
@@ -72,6 +74,7 @@ message CreateSnapshotRequest {
     string SnapshotPath = 2;
     string MemFilePath = 3;
     bool DiffSnapshot = 4;
+    bool DoCompression = 5;
 }
 
 message StopVMRequest {

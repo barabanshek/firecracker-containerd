@@ -601,6 +601,17 @@ func (s *service) createVM(requestCtx context.Context, request *proto.CreateVMRe
 			}))
 	}
 
+	if request.LoadCompressedSnapshot {
+		opts = append(opts, firecracker.WithSnapshot(request.MemFilePath,
+			request.SnapshotPath,
+			func(config *firecracker.SnapshotConfig) {
+				config.ResumeVM = true
+				// Does not matter whether to use FullCompressed or DiffCompressed
+				// since they both are treated in the same way in firecracker
+				config.SnapshotType = "DiffCompressed"
+			}))
+	}
+
 	// TODO(Nikita): pass through the API.
 	s.machineConfig.MachineCfg.TrackDirtyPages = true
 
@@ -944,7 +955,7 @@ func (s *service) CreateSnapshot(requestCtx context.Context, req *proto.CreateSn
 		return nil, err
 	}
 
-	if err := s.machine.CreateSnapshot(requestCtx, req.MemFilePath, req.SnapshotPath, req.DiffSnapshot); err != nil {
+	if err := s.machine.CreateSnapshot(requestCtx, req.MemFilePath, req.SnapshotPath, req.DiffSnapshot, req.DoCompression); err != nil {
 		s.logger.WithError(err).Error()
 		return nil, err
 	}
