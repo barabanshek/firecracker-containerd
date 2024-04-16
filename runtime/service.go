@@ -944,7 +944,7 @@ func (s *service) CreateSnapshot(requestCtx context.Context, req *proto.CreateSn
 		return nil, err
 	}
 
-	if err := s.machine.CreateSnapshot(requestCtx, req.MemFilePath, req.SnapshotPath); err != nil {
+	if err := s.machine.CreateSnapshot(requestCtx, req.MemFilePath, req.SnapshotPath, req.DiffSnapshot); err != nil {
 		s.logger.WithError(err).Error()
 		return nil, err
 	}

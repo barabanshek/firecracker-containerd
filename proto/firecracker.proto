@@ -71,6 +71,7 @@ message CreateSnapshotRequest {
     string VMID = 1;
     string SnapshotPath = 2;
     string MemFilePath = 3;
+    bool DiffSnapshot = 4;
 }
 
 message StopVMRequest {
