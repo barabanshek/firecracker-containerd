@@ -51,6 +51,10 @@ message CreateVMRequest {
     string ContainerSnapshotPath = 18;
 
     bool LoadCompressedSnapshot = 19;
+
+    bool LoadSnapshotAndRecord = 20;
+
+    bool LoadSnapshotAndReply = 21;
 }
 
 message CreateVMResponse {

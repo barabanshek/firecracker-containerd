@@ -601,7 +601,8 @@ func (s *service) createVM(requestCtx context.Context, request *proto.CreateVMRe
 			}))
 	}
 
-	if request.LoadCompressedSnapshot {
+	if !request.LoadSnapshotAndRecord && !request.LoadSnapshotAndReply && request.LoadCompressedSnapshot {
+		// Load standard compressed snapshot.
 		opts = append(opts, firecracker.WithSnapshot(request.MemFilePath,
 			request.SnapshotPath,
 			func(config *firecracker.SnapshotConfig) {
@@ -609,6 +610,43 @@ func (s *service) createVM(requestCtx context.Context, request *proto.CreateVMRe
 				// Does not matter whether to use FullCompressed or DiffCompressed
 				// since they both are treated in the same way in firecracker
 				config.SnapshotType = "DiffCompressed"
+			}))
+	}
+
+	// TODO(Nikita): make this API better.
+	if request.LoadSnapshotAndRecord && !request.LoadCompressedSnapshot {
+		opts = append(opts, firecracker.WithSnapshot(request.MemFilePath,
+			request.SnapshotPath,
+			func(config *firecracker.SnapshotConfig) {
+				config.ResumeVM = true
+				config.SnapshotType = "REAPRecord"
+			}))
+	}
+
+	if request.LoadSnapshotAndRecord && request.LoadCompressedSnapshot {
+		opts = append(opts, firecracker.WithSnapshot(request.MemFilePath,
+			request.SnapshotPath,
+			func(config *firecracker.SnapshotConfig) {
+				config.ResumeVM = true
+				config.SnapshotType = "REAPRecordCompress"
+			}))
+	}
+
+	if request.LoadSnapshotAndReply && !request.LoadCompressedSnapshot {
+		opts = append(opts, firecracker.WithSnapshot(request.MemFilePath,
+			request.SnapshotPath,
+			func(config *firecracker.SnapshotConfig) {
+				config.ResumeVM = true
+				config.SnapshotType = "REAPReplay"
+			}))
+	}
+
+	if request.LoadSnapshotAndReply && request.LoadCompressedSnapshot {
+		opts = append(opts, firecracker.WithSnapshot(request.MemFilePath,
+			request.SnapshotPath,
+			func(config *firecracker.SnapshotConfig) {
+				config.ResumeVM = true
+				config.SnapshotType = "REAPReplayCompress"
 			}))
 	}
 
