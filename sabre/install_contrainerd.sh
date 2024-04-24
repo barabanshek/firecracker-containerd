@@ -44,6 +44,7 @@ make image
 
 # Install all things.
 sudo env "PATH=$PATH" make install
+sudo mkdir -p /opt/cni/bin/
 sudo cp bin/* /opt/cni/bin/
 
 # Sometimes change permissions is required.
