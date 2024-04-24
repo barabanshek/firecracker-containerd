@@ -97,6 +97,7 @@ sudo tee /etc/containerd/firecracker-runtime.json <<EOF
 EOF
 
 # CNI.
+sudo mkdir -p /etc/cni/conf.d/
 sudo cp ../tools/demo/fcnet.conflist  /etc/cni/conf.d/fcnet.conflist
 
 # Make a tap device.
